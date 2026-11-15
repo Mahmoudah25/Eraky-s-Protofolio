@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mohamed Eraky - Flutter Developer Portfolio. Passionate Mobile Application Engineer specializing in Flutter, Dart, Firebase, and Clean Architecture.">
+  <meta name="keywords" content="Mohamed Eraky, Flutter Developer, Mobile Developer, Dart, Firebase, REST APIs, Portfolio">
+  <meta name="author" content="Mohamed Eraky">
+
+  <title>Mohamed Eraky | Flutter Developer</title>
+
+  <!-- Google Fonts: Inter, Cairo, & Fira Code -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Devicon for Tech Stack Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Ambient Background Glows & Particle Canvas -->
+  <canvas id="ambient-canvas"></canvas>
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
+  <div class="glow-orb orb-3"></div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar-wrapper">
+    <nav class="navbar container">
+      <a href="#home" class="nav-logo" aria-label="Mohamed Eraky Home">
+        <span class="logo-bracket">&lt;</span>
+        <span class="logo-name">Eraky</span>
+        <span class="logo-flutter-dot"></span>
+        <span class="logo-bracket">/&gt;</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link active" data-i18n="navHome">Home</a></li>
+        <li><a href="#about" class="nav-link" data-i18n="navAbout">About</a></li>
+        <li><a href="#skills" class="nav-link" data-i18n="navSkills">Skills</a></li>
+        <li><a href="#projects" class="nav-link" data-i18n="navProjects">Projects</a></li>
+        <li><a href="#experience" class="nav-link" data-i18n="navExperience">Experience</a></li>
+        <li><a href="#contact" class="nav-link" data-i18n="navContact">Contact</a></li>
+      </ul>
+
+      <!-- Action Area: Language Switcher & CV Button -->
+      <div class="nav-actions">
+        <button id="lang-toggle-btn" class="lang-toggle-btn" aria-label="Switch Language" title="Switch Language">
+          <i class="fa-solid fa-globe"></i>
+          <span id="lang-label">عربي</span>
+        </button>
+
+        <a href="assets/Mohamed_Eraky_CV.pdf" download="Mohamed_Eraky_CV.pdf" class="btn btn-outline btn-sm nav-cv-btn">
+          <i class="fa-solid fa-arrow-down-to-line"></i>
+          <span data-i18n="downloadCv">CV</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Drawer Navigation -->
+    <div id="mobile-nav-drawer" class="mobile-nav-drawer">
+      <ul class="mobile-nav-links">
+        <li><a href="#home" class="mobile-link" data-i18n="navHome">Home</a></li>
+        <li><a href="#about" class="mobile-link" data-i18n="navAbout">About</a></li>
+        <li><a href="#skills" class="mobile-link" data-i18n="navSkills">Skills</a></li>
+        <li><a href="#projects" class="mobile-link" data-i18n="navProjects">Projects</a></li>
+        <li><a href="#experience" class="mobile-link" data-i18n="navExperience">Experience</a></li>
+        <li><a href="#contact" class="mobile-link" data-i18n="navContact">Contact</a></li>
+      </ul>
+      <div class="mobile-drawer-footer">
+        <a href="assets/Mohamed_Eraky_CV.pdf" download="Mohamed_Eraky_CV.pdf" class="btn btn-primary btn-full">
+          <i class="fa-solid fa-file-pdf"></i>
+          <span data-i18n="downloadResume">Download Resume</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==================== HERO / HOME SECTION ==================== -->
+    <section id="home" class="section hero-section">
+      <div class="container hero-grid">
+        
+        <!-- Hero Text Content -->
+        <div class="hero-content reveal-on-scroll">
+          <div class="hero-badge">
+            <span class="status-indicator"></span>
+            <span data-i18n="heroStatus">Open to Opportunities & Freelance</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span class="greeting" data-i18n="heroGreeting">Hello, I'm</span>
+            <span class="highlight-name">Mohamed Eraky</span>
+          </h1>
+
+          <div class="hero-typing-wrapper">
+            <span class="typing-prefix" data-i18n="heroSpecialty">I build</span>
+            <span id="typed-text" class="typed-text"></span>
+            <span class="typing-cursor">|</span>
+          </div>
+
+          <p class="hero-description" data-i18n="heroDescription">
+            Computer Science student & passionate Flutter Developer dedicated to crafting high-performance, responsive cross-platform mobile apps. Focused on clean architecture, smooth UI/UX animations, and robust API integrations.
+          </p>
+
+          <!-- Hero Action Buttons -->
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn btn-primary">
+              <span data-i18n="exploreWork">Explore Projects</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              <span data-i18n="contactMe">Contact Me</span>
+              <i class="fa-regular fa-paper-plane"></i>
+            </a>
+            <a href="assets/Mohamed_Eraky_CV.pdf" download="Mohamed_Eraky_CV.pdf" class="btn btn-ghost" title="Download CV">
+              <i class="fa-solid fa-download"></i>
+              <span data-i18n="downloadCvFull">Download CV</span>
+            </a>
+          </div>
+
+          <!-- Hero Social Links & Stats Quick Glance -->
+          <div class="hero-social-strip">
+            <span class="social-label" data-i18n="findMeOn">Connect with me:</span>
+            <div class="social-icons">
+              <a href="https://github.com/eng-m-eraky" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/mohamed-eraky-elshafey" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+              <a href="mailto:muhammederakyy@gmail.com" class="social-icon" aria-label="Email">
+                <i class="fa-solid fa-envelope"></i>
+              </a>
+              <a href="https://wa.me/201017833744" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual Showcase -->
+        <div class="hero-visual reveal-on-scroll">
+          <div class="hero-image-wrapper">
+            <div class="image-backdrop-glow"></div>
+            <div class="profile-frame">
+              <img src="assets/images/profile.jpg" alt="Mohamed Eraky" class="profile-photo" id="profile-img">
+            </div>
+
+            <!-- Floating Tech Badges -->
+            <div class="floating-badge badge-flutter">
+              <i class="devicon-flutter-plain colored"></i>
+              <div>
+                <span class="badge-title">Flutter</span>
+                <span class="badge-sub">Mobile Apps</span>
+              </div>
+            </div>
+
+            <div class="floating-badge badge-dart">
+              <i class="devicon-dart-plain colored"></i>
+              <div>
+                <span class="badge-title">Dart</span>
+                <span class="badge-sub">Clean Code</span>
+              </div>
+            </div>
+
+            <div class="floating-badge badge-firebase">
+              <i class="devicon-firebase-plain colored"></i>
+              <div>
+                <span class="badge-title">Firebase & APIs</span>
+                <span class="badge-sub">Full Integration</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Scroll Down Indicator -->
+      <a href="#about" class="scroll-down-indicator" aria-label="Scroll down to About section">
+        <span class="mouse">
+          <span class="wheel"></span>
+        </span>
+        <span class="scroll-text" data-i18n="scrollDown">Scroll Down</span>
+      </a>
+    </section>
+
+    <!-- ==================== ABOUT ME SECTION ==================== -->
+    <section id="about" class="section about-section">
+      <div class="container">
+        
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag" data-i18n="aboutTag">Get to Know Me</span>
+          <h2 class="section-title" data-i18n="aboutTitle">About Me</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="about-grid">
+          
+          <!-- Code Card / Interactive Showcase -->
+          <div class="about-card-wrapper reveal-on-scroll">
+            <div class="code-window">
+              <div class="code-header">
+                <div class="window-dots">
+                  <span class="dot dot-red"></span>
+                  <span class="dot dot-yellow"></span>
+                  <span class="dot dot-green"></span>
+                </div>
+                <div class="file-name">developer_info.dart</div>
+              </div>
+              <div class="code-body">
+                <pre><code><span class="code-keyword">class</span> <span class="code-class">MohamedEraky</span> <span class="code-keyword">extends</span> <span class="code-class">FlutterDeveloper</span> {
+  <span class="code-keyword">final</span> String name = <span class="code-string">'Mohamed Eraky'</span>;
+  <span class="code-keyword">final</span> String role = <span class="code-string">'Flutter & Dart Engineer'</span>;
+  <span class="code-keyword">final</span> String study = <span class="code-string">'CS @ Elshorouk Academy'</span>;
+  <span class="code-keyword">final</span> String location = <span class="code-string">'Benha, Egypt'</span>;
+  
+  <span class="code-keyword">List</span>&lt;String&gt; passions = [
+    <span class="code-string">'Clean Architecture'</span>,
+    <span class="code-string">'State Management (Bloc, Cubit)'</span>,
+    <span class="code-string">'Pixel-Perfect UI & UX'</span>,
+    <span class="code-string">'Problem Solving'</span>,
+  ];
+
+  <span class="code-keyword">bool</span> isReadyForNewChallenges = <span class="code-keyword">true</span>;
+
+  <span class="code-keyword">void</span> buildGreatApps() {
+    <span class="code-comment">// Transforming ideas into scalable mobile experiences</span>
+    deliverCleanCode();
+  }
+}</code></pre>
+              </div>
+            </div>
+
+            <!-- Quick Fact Cards -->
+            <div class="stats-cards-grid">
+              <div class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <div class="stat-number">3rd Year</div>
+                <div class="stat-desc" data-i18n="statCS">Computer Science</div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-certificate"></i></div>
+                <div class="stat-number">DEPI & ITI</div>
+                <div class="stat-desc" data-i18n="statCert">Specialized Training</div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                <div class="stat-number">5+</div>
+                <div class="stat-desc" data-i18n="statProjects">Projects Built</div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-code-commit"></i></div>
+                <div class="stat-number">100%</div>
+                <div class="stat-desc" data-i18n="statCommitment">Dedication & Clean Code</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- About Biography & Details -->
+          <div class="about-content reveal-on-scroll">
+            <h3 class="about-headline" data-i18n="aboutHeadline">
+              Passionate Mobile Developer Building Seamless Digital Products
+            </h3>
+
+            <p class="about-paragraph" data-i18n="aboutBio1">
+              I am a detail-oriented Computer Science student in my third year at <strong>Elshorouk Academy</strong> (2023 – 2027), deeply enthusiastic about software engineering and mobile application craftsmanship.
+            </p>
+
+            <p class="about-paragraph" data-i18n="aboutBio2">
+              My core focus lies in the <strong>Flutter & Dart ecosystem</strong>. I have fortified my foundation through high-caliber training programs including the <strong>Digital Egypt Pioneers Program (DEPI)</strong> and the <strong>Information Technology Institute (ITI)</strong>, along with professional mentorship under Eng. Usama Elgendy.
+            </p>
+
+            <p class="about-paragraph" data-i18n="aboutBio3">
+              I emphasize writing readable, maintainable, and testable code applying <strong>OOP principles, SOLID guidelines</strong>, and architectural patterns like Bloc/Cubit and Clean Architecture. I love turning complex requirements into intuitive, fluid mobile interfaces.
+            </p>
+
+            <!-- Key Highlights List -->
+            <div class="about-highlights-list">
+              <div class="highlight-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span data-i18n="highlight1">Proficient in Android & iOS cross-platform development</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span data-i18n="highlight2">Advanced State Management (Bloc, Cubit, Provider)</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span data-i18n="highlight3">RESTful API integration, Firebase backend & offline caching</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span data-i18n="highlight4">Continuous learner with strong analytical & problem-solving skills</span>
+              </div>
+            </div>
+
+            <div class="about-action">
+              <a href="#contact" class="btn btn-primary">
+                <span data-i18n="letsTalk">Let's Talk</span>
+                <i class="fa-solid fa-comments"></i>
+              </a>
+              <a href="assets/Mohamed_Eraky_CV.pdf" download="Mohamed_Eraky_CV.pdf" class="btn btn-secondary">
+                <i class="fa-solid fa-file-arrow-down"></i>
+                <span data-i18n="downloadResume">Download Resume</span>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SKILLS & TECHNOLOGIES ==================== -->
+    <section id="skills" class="section skills-section">
+      <div class="container">
+        
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag" data-i18n="skillsTag">My Technical Arsenal</span>
+          <h2 class="section-title" data-i18n="skillsTitle">Skills & Technologies</h2>
+          <div class="section-line"></div>
+          <p class="section-subtitle" data-i18n="skillsSubtitle">
+            Technologies, frameworks, and architectural practices I utilize to build modern apps.
+          </p>
+        </div>
+
+        <div class="skills-categories-grid">
+
+          <!-- Category 1: Mobile & Core Framework -->
+          <div class="skill-category-card reveal-on-scroll">
+            <div class="card-glow-top"></div>
+            <div class="category-header">
+              <div class="category-icon-box">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+              </div>
+              <h3 data-i18n="skillCatMobile">Mobile & Core</h3>
+            </div>
+            <div class="skills-chips-wrapper">
+              <div class="skill-chip">
+                <i class="devicon-flutter-plain colored"></i>
+                <span>Flutter</span>
+              </div>
+              <div class="skill-chip">
+                <i class="devicon-dart-plain colored"></i>
+                <span>Dart</span>
+              </div>
+              <div class="skill-chip">
+                <i class="devicon-android-plain colored"></i>
+                <span>Cross-Platform UI</span>
+              </div>
+              <div class="skill-chip">
+                <i class="fa-solid fa-cubes"></i>
+                <span>Custom Widgets</span>
+              </div>
+              <div class="skill-chip">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <span>Material & Cupertino</span>
+              </div>
+              <div class="skill-chip">
+                <i class="fa-solid fa-arrows-spin"></i>
+                <span>Animations & Transitions</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 2: State Management & Architecture -->
+          <div class="skill-category-card reveal-on-scroll">
+            <div class="card-glow-top"></div>
+            <div class="category-header">
+              <div class="category-icon-box">
+                <i class="fa-solid fa-network-wired"></i>
+              </div>
+              <h3 data-i18n="skillCatState">State & Architecture</h3>
+            </div>
+            <div class="skills-chips-wrapper">
+              <div class="skill-chip">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>Bloc / Cubit</span>
+              </div>
+              <div class="skill-chip">
+                <i class="fa-solid fa-boxes-stacked"></i>
+                <span>Provider</span>
+              </div>
+              <div class="skill-chip">
+                <i class="fa-solid fa-bolt"></i>
+                <span>GetX</span>
+              </div>
+              <div class="skill-chip">
+                <i class="fa-solid fa-sitemap"></i>
+                <span>Clean Architecture</span>
+              </div>
+              <div class="skill-chip">
+                <i class="fa-solid fa-cube"></i>
+                <span>OOP & SOLID</span>
+              </div>
+              <div class="skill-chip">
+                <i class="fa-solid fa-diagram-project"></i>
+                <span>Design Patterns</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 3: Backend, APIs & Storage -->
+          <div class="skill-category-card reveal-on-scroll">
+            <div class="card-glow-top"></div>
+            <div class="category-header">
+              <div class="category-icon-box">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+              </div>
+              <h3 data-i18n="skillCatBackend">Backend & Storage</h3>
+            </div>
+            <div class="skills-chips-wrapper">
+              <div class="skill-chip">
+                <i class="devicon-firebase-plain colored"></i>
+                <span>Firebase Auth</span>
+              </div>
+              <div class="skill-chip">
+                <i class="fa-solid fa-fire"></i>
+                <span>Cloud Firestore</span>
+              </div>
+              <div class="skill-chip">
+                <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                <span>RESTful APIs</span>
+              </div>
+              <div class="skill-chip">
+                <i class="devicon-postman-plain colored"></i>
+                <span>Postman / Dio / HTTP</span>
+              </div>
+              <div class="skill-chip">
+                <i class="fa-solid fa-code"></i>
+                <span>JSON Serialization</span>
+              </div>
+              <div class="skill-chip">
+                <i class="fa-solid fa-database"></i>
+                <span>Shared Preferences / Hive</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 4: Tools & Programming Languages -->
+          <div class="skill-category-card reveal-on-scroll">
+            <div class="card-glow-top"></div>
+            <div class="category-header">
+              <div class="category-icon-box">
+                <i class="fa-solid fa-toolbox"></i>
+              </div>
+              <h3 data-i18n="skillCatTools">Tools & Languages</h3>
+            </div>
+            <div class="skills-chips-wrapper">
+              <div class="skill-chip">
+                <i class="devicon-git-plain colored"></i>
+                <span>Git</span>
+              </div>
+              <div class="skill-chip">
+                <i class="devicon-github-original"></i>
+                <span>GitHub</span>
+              </div>
+              <div class="skill-chip">
+                <i class="devicon-vscode-plain colored"></i>
+                <span>VS Code</span>
+              </div>
+              <div class="skill-chip">
+                <i class="devicon-androidstudio-plain colored"></i>
+                <span>Android Studio</span>
+              </div>
+              <div class="skill-chip">
+                <i class="devicon-csharp-plain colored"></i>
+                <span>C#</span>
+              </div>
+              <div class="skill-chip">
+                <i class="devicon-cplusplus-plain colored"></i>
+                <span>C / C++</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Languages & Soft Skills Bar -->
+        <div class="extra-skills-row reveal-on-scroll">
+          <div class="extra-skill-item">
+            <i class="fa-solid fa-language"></i>
+            <div>
+              <strong>Arabic:</strong> <span data-i18n="nativeLang">Native</span>
+            </div>
+          </div>
+          <div class="extra-skill-item">
+            <i class="fa-solid fa-globe"></i>
+            <div>
+              <strong>English:</strong> <span>B1 (Professional Working)</span>
+            </div>
+          </div>
+          <div class="extra-skill-item">
+            <i class="fa-solid fa-brain"></i>
+            <div>
+              <strong>Problem Solving:</strong> <span data-i18n="algorithms">Data Structures & Logic</span>
+            </div>
+          </div>
+          <div class="extra-skill-item">
+            <i class="fa-solid fa-users"></i>
+            <div>
+              <strong>Teamwork:</strong> <span data-i18n="agile">Agile Collaboration & Git</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== PROJECTS SECTION ==================== -->
+    <section id="projects" class="section projects-section">
+      <div class="container">
+
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag" data-i18n="projectsTag">Portfolio Showcase</span>
+          <h2 class="section-title" data-i18n="projectsTitle">Featured Projects</h2>
+          <div class="section-line"></div>
+          <p class="section-subtitle" data-i18n="projectsSubtitle">
+            A curated selection of mobile applications and software projects I've built.
+          </p>
+        </div>
+
+        <!-- Project Filter Buttons -->
+        <div class="project-filters reveal-on-scroll">
+          <button class="filter-btn active" data-filter="all" data-i18n="filterAll">All Projects</button>
+          <button class="filter-btn" data-filter="flutter" data-i18n="filterFlutter">Flutter Apps</button>
+          <button class="filter-btn" data-filter="dart" data-i18n="filterDart">Dart & OOP</button>
+          <button class="filter-btn" data-filter="web" data-i18n="filterWeb">Web</button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid">
+
+          <!-- Project 1: CarHub Mobile App -->
+          <div class="project-card reveal-on-scroll" data-category="flutter">
+            <div class="project-image-box">
+              <div class="project-placeholder-preview project-preview-carhub">
+                <div class="preview-overlay">
+                  <i class="fa-solid fa-car-side preview-icon"></i>
+                  <span class="preview-title">CarHub App</span>
+                </div>
+              </div>
+              <div class="project-badge">Flutter & Dart</div>
+            </div>
+
+            <div class="project-content">
+              <h3 class="project-title" data-i18n="projCarhubTitle">CarHub - Automotive Showcase App</h3>
+              <p class="project-description" data-i18n="projCarhubDesc">
+                A modern Flutter mobile application for browsing automotive vehicles, exploring specifications, searching car models, and viewing detailed profiles with clean modular architecture.
+              </p>
+              
+              <div class="project-tech-tags">
+                <span class="tech-tag">Flutter</span>
+                <span class="tech-tag">Dart</span>
+                <span class="tech-tag">Custom Widgets</span>
+                <span class="tech-tag">Responsive UI</span>
+              </div>
+
+              <div class="project-links">
+                <a href="https://github.com/eng-m-eraky/carhub-intial" target="_blank" rel="noopener noreferrer" class="btn-project-link">
+                  <i class="fa-brands fa-github"></i>
+                  <span data-i18n="viewSource">Source Code</span>
+                </a>
+                <button class="btn-project-link btn-modal" data-modal="modal-carhub">
+                  <i class="fa-solid fa-circle-info"></i>
+                  <span data-i18n="details">Details</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: DEPI E-Commerce App -->
+          <div class="project-card reveal-on-scroll" data-category="flutter">
+            <div class="project-image-box">
+              <div class="project-placeholder-preview project-preview-depi">
+                <div class="preview-overlay">
+                  <i class="fa-solid fa-bag-shopping preview-icon"></i>
+                  <span class="preview-title">DEPI Store</span>
+                </div>
+              </div>
+              <div class="project-badge">DEPI Program</div>
+            </div>
+
+            <div class="project-content">
+              <h3 class="project-title" data-i18n="projDepiTitle">DEPI E-Commerce Mobile App</h3>
+              <p class="project-description" data-i18n="projDepiDesc">
+                Comprehensive shopping application developed during the Digital Egypt Pioneers program. Features catalog browsing, product details, interactive shopping cart, favorites wishlist, and state handling.
+              </p>
+              
+              <div class="project-tech-tags">
+                <span class="tech-tag">Flutter</span>
+                <span class="tech-tag">Dart</span>
+                <span class="tech-tag">REST APIs</span>
+                <span class="tech-tag">State Management</span>
+              </div>
+
+              <div class="project-links">
+                <a href="https://github.com/eng-m-eraky/depitask" target="_blank" rel="noopener noreferrer" class="btn-project-link">
+                  <i class="fa-brands fa-github"></i>
+                  <span data-i18n="viewSource">Source Code</span>
+                </a>
+                <button class="btn-project-link btn-modal" data-modal="modal-depi">
+                  <i class="fa-solid fa-circle-info"></i>
+                  <span data-i18n="details">Details</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: DocDoc Doctor Appointment App -->
+          <div class="project-card reveal-on-scroll" data-category="flutter">
+            <div class="project-image-box">
+              <img src="assets/images/docdoc.png" alt="DocDoc Doctor Appointment App" class="project-img">
+              <div class="project-badge">Healthcare UI</div>
+            </div>
+
+            <div class="project-content">
+              <h3 class="project-title" data-i18n="projDocdocTitle">DocDoc - Doctor Appointment App</h3>
+              <p class="project-description" data-i18n="projDocdocDesc">
+                Sleek medical booking application with animated splash screen, welcoming onboarding flow, authentication interfaces, and doctor specialty appointment scheduling.
+              </p>
+              
+              <div class="project-tech-tags">
+                <span class="tech-tag">Flutter</span>
+                <span class="tech-tag">Dart</span>
+                <span class="tech-tag">UI/UX Design</span>
+                <span class="tech-tag">Material 3</span>
+              </div>
+
+              <div class="project-links">
+                <a href="https://github.com/eng-m-eraky" target="_blank" rel="noopener noreferrer" class="btn-project-link">
+                  <i class="fa-brands fa-github"></i>
+                  <span data-i18n="viewGithub">GitHub</span>
+                </a>
+                <button class="btn-project-link btn-modal" data-modal="modal-docdoc">
+                  <i class="fa-solid fa-circle-info"></i>
+                  <span data-i18n="details">Details</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: Tasks & Notes Manager -->
+          <div class="project-card reveal-on-scroll" data-category="flutter">
+            <div class="project-image-box">
+              <div class="project-placeholder-preview project-preview-tasks">
+                <div class="preview-overlay">
+                  <i class="fa-solid fa-list-check preview-icon"></i>
+                  <span class="preview-title">Tasks App</span>
+                </div>
+              </div>
+              <div class="project-badge">Productivity</div>
+            </div>
+
+            <div class="project-content">
+              <h3 class="project-title" data-i18n="projTasksTitle">Tasks & Productivity Manager</h3>
+              <p class="project-description" data-i18n="projTasksDesc">
+                Intuitive daily task tracker and productivity application. Implements dynamic task status toggling, categorized lists, and persistent storage with responsive screens.
+              </p>
+              
+              <div class="project-tech-tags">
+                <span class="tech-tag">Flutter</span>
+                <span class="tech-tag">Dart</span>
+                <span class="tech-tag">Shared Preferences</span>
+                <span class="tech-tag">State Management</span>
+              </div>
+
+              <div class="project-links">
+                <a href="https://github.com/eng-m-eraky/tasks" target="_blank" rel="noopener noreferrer" class="btn-project-link">
+                  <i class="fa-brands fa-github"></i>
+                  <span data-i18n="viewSource">Source Code</span>
+                </a>
+                <button class="btn-project-link btn-modal" data-modal="modal-tasks">
+                  <i class="fa-solid fa-circle-info"></i>
+                  <span data-i18n="details">Details</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5: OOP & Design Patterns Engine -->
+          <div class="project-card reveal-on-scroll" data-category="dart">
+            <div class="project-image-box">
+              <div class="project-placeholder-preview project-preview-oop">
+                <div class="preview-overlay">
+                  <i class="fa-solid fa-gamepad preview-icon"></i>
+                  <span class="preview-title">Game Factory Engine</span>
+                </div>
+              </div>
+              <div class="project-badge">Dart Architecture</div>
+            </div>
+
+            <div class="project-content">
+              <h3 class="project-title" data-i18n="projOopTitle">OOP & Strategy Pattern Engine</h3>
+              <p class="project-description" data-i18n="projOopDesc">
+                Clean Dart software architecture demonstrating advanced Object-Oriented Programming and design patterns (Factory Method, Strategy Pattern) for dynamic game character combat systems.
+              </p>
+              
+              <div class="project-tech-tags">
+                <span class="tech-tag">Dart</span>
+                <span class="tech-tag">Design Patterns</span>
+                <span class="tech-tag">Strategy Pattern</span>
+                <span class="tech-tag">Factory Pattern</span>
+              </div>
+
+              <div class="project-links">
+                <a href="https://github.com/eng-m-eraky" target="_blank" rel="noopener noreferrer" class="btn-project-link">
+                  <i class="fa-brands fa-github"></i>
+                  <span data-i18n="viewGithub">GitHub</span>
+                </a>
+                <button class="btn-project-link btn-modal" data-modal="modal-oop">
+                  <i class="fa-solid fa-circle-info"></i>
+                  <span data-i18n="details">Details</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6: Dice Simulator & C++ Algorithms -->
+          <div class="project-card reveal-on-scroll" data-category="dart">
+            <div class="project-image-box">
+              <div class="project-placeholder-preview project-preview-dice">
+                <div class="preview-overlay">
+                  <i class="fa-solid fa-dice-d20 preview-icon"></i>
+                  <span class="preview-title">Dice Simulation</span>
+                </div>
+              </div>
+              <div class="project-badge">C++ Logic</div>
+            </div>
+
+            <div class="project-content">
+              <h3 class="project-title" data-i18n="projDiceTitle">Dice Mechanics & Algorithmic Tasks</h3>
+              <p class="project-description" data-i18n="projDiceDesc">
+                Algorithmic problem-solving implementations in C++ covering probability calculations, data structure manipulation, and logical control systems.
+              </p>
+              
+              <div class="project-tech-tags">
+                <span class="tech-tag">C++</span>
+                <span class="tech-tag">Problem Solving</span>
+                <span class="tech-tag">Algorithms</span>
+              </div>
+
+              <div class="project-links">
+                <a href="https://github.com/eng-m-eraky/Ass1_Dice" target="_blank" rel="noopener noreferrer" class="btn-project-link">
+                  <i class="fa-brands fa-github"></i>
+                  <span data-i18n="viewSource">Source Code</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- GitHub Profile Banner CTA -->
+        <div class="github-cta-card reveal-on-scroll">
+          <div class="github-cta-content">
+            <i class="fa-brands fa-github github-big-icon"></i>
+            <div>
+              <h4 data-i18n="githubCtaTitle">Check out more on GitHub</h4>
+              <p data-i18n="githubCtaDesc">Explore all my repositories, open-source code, and mobile development experiments.</p>
+            </div>
+          </div>
+          <a href="https://github.com/eng-m-eraky" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            <span data-i18n="visitGithub">Visit GitHub Profile</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== EXPERIENCE & EDUCATION ==================== -->
+    <section id="experience" class="section experience-section">
+      <div class="container">
+        
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag" data-i18n="expTag">Career & Academic Path</span>
+          <h2 class="section-title" data-i18n="expTitle">Experience & Education</h2>
+          <div class="section-line"></div>
+          <p class="section-subtitle" data-i18n="expSubtitle">
+            My educational background, professional training, and certified accomplishments.
+          </p>
+        </div>
+
+        <div class="timeline-container">
+          <div class="timeline-track"></div>
+
+          <!-- Timeline Item 1: University Degree -->
+          <div class="timeline-item reveal-on-scroll">
+            <div class="timeline-dot">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-badge" data-i18n="eduDegree">Higher Education</div>
+              <span class="timeline-date"><i class="fa-regular fa-calendar"></i> 09/2023 – 07/2027</span>
+              <h3 class="timeline-title" data-i18n="eduTitle">Bachelor of Computer Science</h3>
+              <h4 class="timeline-company">Elshorouk Academy</h4>
+              <p class="timeline-text" data-i18n="eduDesc">
+                Currently in the 3rd year. Focusing on Software Engineering fundamentals, Object-Oriented Programming, Data Structures, Algorithms, Database Systems, and System Analysis.
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 2: DEPI Certificate -->
+          <div class="timeline-item reveal-on-scroll">
+            <div class="timeline-dot">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-badge badge-cert" data-i18n="certTag">Certified Program</div>
+              <span class="timeline-date"><i class="fa-regular fa-calendar"></i> 2024</span>
+              <h3 class="timeline-title" data-i18n="depiTitle">Digital Egypt Pioneers Program (DEPI)</h3>
+              <h4 class="timeline-company">Ministry of Communications & Information Technology (MCIT)</h4>
+              <p class="timeline-text" data-i18n="depiDesc">
+                Specialized training in Mobile Application Development using Flutter. Built production-ready mobile apps, practiced real-world agile development cycles, and mastered REST APIs with state management.
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 3: ITI Certificate -->
+          <div class="timeline-item reveal-on-scroll">
+            <div class="timeline-dot">
+              <i class="fa-solid fa-certificate"></i>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-badge badge-cert" data-i18n="certTag">Certificate</div>
+              <span class="timeline-date"><i class="fa-regular fa-calendar"></i> 2024</span>
+              <h3 class="timeline-title" data-i18n="itiTitle">Mobile App Development using Flutter</h3>
+              <h4 class="timeline-company">Information Technology Institute (ITI)</h4>
+              <p class="timeline-text" data-i18n="itiDesc">
+                Intensive mobile track covering Dart language concepts, Flutter framework internals, widget lifecycle, clean responsive UI design, and asynchronous networking.
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 4: Flutter Diploma Usama Elgendy -->
+          <div class="timeline-item reveal-on-scroll">
+            <div class="timeline-dot">
+              <i class="fa-solid fa-laptop-code"></i>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-badge badge-course" data-i18n="courseTag">Professional Course</div>
+              <span class="timeline-date"><i class="fa-regular fa-calendar"></i> 2024</span>
+              <h3 class="timeline-title" data-i18n="diplomaTitle">Comprehensive Flutter Diploma</h3>
+              <h4 class="timeline-company">Eng. Usama Elgendy</h4>
+              <p class="timeline-text" data-i18n="diplomaDesc">
+                Deep dive into advanced Flutter architecture, Bloc / Cubit state management patterns, Firebase integration, offline persistence, and deployment best practices.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT ME SECTION ==================== -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag" data-i18n="contactTag">Get In Touch</span>
+          <h2 class="section-title" data-i18n="contactTitle">Contact Me</h2>
+          <div class="section-line"></div>
+          <p class="section-subtitle" data-i18n="contactSubtitle">
+            Have a project in mind, an opportunity, or just want to connect? Let's build something exceptional together.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+
+          <!-- Contact Information Cards -->
+          <div class="contact-info-wrapper reveal-on-scroll">
+            <h3 class="contact-cards-title" data-i18n="reachDirectly">Reach Out Directly</h3>
+
+            <!-- Email Card -->
+            <div class="contact-channel-card">
+              <div class="channel-icon">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div class="channel-content">
+                <span class="channel-label" data-i18n="emailLabel">Email Address</span>
+                <a href="mailto:muhammederakyy@gmail.com" class="channel-value">muhammederakyy@gmail.com</a>
+              </div>
+              <button class="copy-btn" data-copy="muhammederakyy@gmail.com" title="Copy Email">
+                <i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+
+            <!-- Phone / WhatsApp Card -->
+            <div class="contact-channel-card">
+              <div class="channel-icon">
+                <i class="fa-brands fa-whatsapp"></i>
+              </div>
+              <div class="channel-content">
+                <span class="channel-label" data-i18n="phoneLabel">Phone & WhatsApp</span>
+                <a href="https://wa.me/201017833744" target="_blank" rel="noopener noreferrer" class="channel-value">+20 101 783 3744</a>
+              </div>
+              <button class="copy-btn" data-copy="+201017833744" title="Copy Number">
+                <i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+
+            <!-- LinkedIn Card -->
+            <div class="contact-channel-card">
+              <div class="channel-icon">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </div>
+              <div class="channel-content">
+                <span class="channel-label">LinkedIn</span>
+                <a href="https://www.linkedin.com/in/mohamed-eraky-elshafey" target="_blank" rel="noopener noreferrer" class="channel-value">mohamed-eraky-elshafey</a>
+              </div>
+              <a href="https://www.linkedin.com/in/mohamed-eraky-elshafey" target="_blank" rel="noopener noreferrer" class="channel-arrow">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+
+            <!-- GitHub Card -->
+            <div class="contact-channel-card">
+              <div class="channel-icon">
+                <i class="fa-brands fa-github"></i>
+              </div>
+              <div class="channel-content">
+                <span class="channel-label">GitHub</span>
+                <a href="https://github.com/eng-m-eraky" target="_blank" rel="noopener noreferrer" class="channel-value">eng-m-eraky</a>
+              </div>
+              <a href="https://github.com/eng-m-eraky" target="_blank" rel="noopener noreferrer" class="channel-arrow">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+
+            <!-- Location Card -->
+            <div class="contact-channel-card">
+              <div class="channel-icon">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div class="channel-content">
+                <span class="channel-label" data-i18n="locationLabel">Location</span>
+                <span class="channel-value" data-i18n="locationVal">Benha, Qalyubia, Egypt</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Interactive Contact Form -->
+          <div class="contact-form-wrapper reveal-on-scroll">
+            <h3 class="contact-form-title" data-i18n="sendMessageTitle">Send a Message</h3>
+            
+            <form id="contact-form" class="contact-form" novalidate>
+              <div class="form-group">
+                <label for="form-name" data-i18n="formName">Your Name</label>
+                <div class="input-container">
+                  <i class="fa-regular fa-user input-icon"></i>
+                  <input type="text" id="form-name" name="name" required placeholder="e.g. John Doe">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="form-email" data-i18n="formEmail">Your Email</label>
+                <div class="input-container">
+                  <i class="fa-regular fa-envelope input-icon"></i>
+                  <input type="email" id="form-email" name="email" required placeholder="e.g. john@example.com">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="form-subject" data-i18n="formSubject">Subject</label>
+                <div class="input-container">
+                  <i class="fa-solid fa-tag input-icon"></i>
+                  <input type="text" id="form-subject" name="subject" required placeholder="e.g. Mobile App Opportunity">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="form-message" data-i18n="formMessage">Message</label>
+                <div class="input-container">
+                  <i class="fa-regular fa-comment-dots input-icon textarea-icon"></i>
+                  <textarea id="form-message" name="message" rows="5" required placeholder="Tell me about your idea or project..."></textarea>
+                </div>
+              </div>
+
+              <button type="submit" id="submit-btn" class="btn btn-primary btn-full">
+                <span data-i18n="sendButton">Send Message</span>
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+
+              <div id="form-status" class="form-status-msg"></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-top">
+        <a href="#home" class="nav-logo">
+          <span class="logo-bracket">&lt;</span>
+          <span class="logo-name">Eraky</span>
+          <span class="logo-flutter-dot"></span>
+          <span class="logo-bracket">/&gt;</span>
+        </a>
+        <p class="footer-quote" data-i18n="footerQuote">
+          "Crafting high quality mobile experiences with clean code and modern design."
+        </p>
+        <div class="footer-socials">
+          <a href="https://github.com/eng-m-eraky" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/mohamed-eraky-elshafey" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="mailto:muhammederakyy@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+          <a href="https://wa.me/201017833744" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year"></span> Mohamed Eraky. <span data-i18n="rightsReserved">All rights reserved.</span></p>
+        <p class="footer-crafted" data-i18n="craftedWith">Built with <i class="fa-solid fa-heart heart-icon"></i> for Flutter Excellence</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== PROJECT DETAIL MODALS ==================== -->
+  <div id="project-modal" class="modal-backdrop">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" aria-label="Close dialog">&times;</button>
+      <div class="modal-content" id="modal-dynamic-content">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast" class="toast-notification"></div>
+
+  <!-- Back to Top Floating Button -->
+  <button id="back-to-top" class="back-to-top-btn" aria-label="Back to Top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Custom JavaScript -->
+  <script src="main.js"></script>
+</body>
+</html>
