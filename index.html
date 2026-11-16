@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr" data-theme="dark">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="Mohamed Eraky - Flutter Developer Portfolio. Passionate Mobile Application Engineer specializing in Flutter, Dart, Firebase, and Clean Architecture.">
   <meta name="keywords" content="Mohamed Eraky, Flutter Developer, Mobile Developer, Dart, Firebase, REST APIs, Portfolio">
   <meta name="author" content="Mohamed Eraky">
@@ -31,6 +31,9 @@
   <div class="glow-orb orb-2"></div>
   <div class="glow-orb orb-3"></div>
 
+  <!-- Mobile Drawer Backdrop Overlay -->
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+
   <!-- Navigation Bar -->
   <header class="navbar-wrapper">
     <nav class="navbar container">
@@ -51,7 +54,7 @@
         <li><a href="#contact" class="nav-link" data-i18n="navContact">Contact</a></li>
       </ul>
 
-      <!-- Action Area: Language Switcher & CV Button -->
+      <!-- Action Area: Language Switcher, CV Button & Mobile Hamburger -->
       <div class="nav-actions">
         <button id="lang-toggle-btn" class="lang-toggle-btn" aria-label="Switch Language" title="Switch Language">
           <i class="fa-solid fa-globe"></i>
@@ -64,7 +67,7 @@
         </a>
 
         <!-- Mobile Menu Toggle Button -->
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle navigation menu">
+        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
@@ -73,7 +76,17 @@
     </nav>
 
     <!-- Mobile Drawer Navigation -->
-    <div id="mobile-nav-drawer" class="mobile-nav-drawer">
+    <div id="mobile-nav-drawer" class="mobile-nav-drawer" aria-hidden="true">
+      <div class="mobile-drawer-header">
+        <a href="#home" class="nav-logo mobile-drawer-logo">
+          <span class="logo-bracket">&lt;</span>
+          <span class="logo-name">Eraky</span>
+          <span class="logo-flutter-dot"></span>
+          <span class="logo-bracket">/&gt;</span>
+        </a>
+        <button id="drawer-close-btn" class="drawer-close-btn" aria-label="Close navigation">&times;</button>
+      </div>
+
       <ul class="mobile-nav-links">
         <li><a href="#home" class="mobile-link" data-i18n="navHome">Home</a></li>
         <li><a href="#about" class="mobile-link" data-i18n="navAbout">About</a></li>
@@ -82,6 +95,7 @@
         <li><a href="#experience" class="mobile-link" data-i18n="navExperience">Experience</a></li>
         <li><a href="#contact" class="mobile-link" data-i18n="navContact">Contact</a></li>
       </ul>
+
       <div class="mobile-drawer-footer">
         <a href="assets/Mohamed_Eraky_CV.pdf" download="Mohamed_Eraky_CV.pdf" class="btn btn-primary btn-full">
           <i class="fa-solid fa-file-pdf"></i>
@@ -91,7 +105,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <!-- ==================== HERO / HOME SECTION ==================== -->
     <section id="home" class="section hero-section">
       <div class="container hero-grid">
@@ -134,7 +148,7 @@
             </a>
           </div>
 
-          <!-- Hero Social Links & Stats Quick Glance -->
+          <!-- Hero Social Links & Connect Strip -->
           <div class="hero-social-strip">
             <span class="social-label" data-i18n="findMeOn">Connect with me:</span>
             <div class="social-icons">
@@ -159,7 +173,7 @@
           <div class="hero-image-wrapper">
             <div class="image-backdrop-glow"></div>
             <div class="profile-frame">
-              <img src="assets/images/profile.jpg" alt="Mohamed Eraky" class="profile-photo" id="profile-img">
+              <img src="assets/images/profile.jpg" alt="Mohamed Eraky - Flutter Developer" class="profile-photo" id="profile-img">
             </div>
 
             <!-- Floating Tech Badges -->
@@ -631,7 +645,7 @@
           <!-- Project 3: DocDoc Doctor Appointment App -->
           <div class="project-card reveal-on-scroll" data-category="flutter">
             <div class="project-image-box">
-              <img src="assets/images/docdoc.png" alt="DocDoc Doctor Appointment App" class="project-img">
+              <img src="assets/images/docdoc.png" alt="DocDoc Doctor Appointment App" class="project-img" loading="lazy">
               <div class="project-badge">Healthcare UI</div>
             </div>
 
@@ -812,8 +826,10 @@
               <i class="fa-solid fa-graduation-cap"></i>
             </div>
             <div class="timeline-card">
-              <div class="timeline-badge" data-i18n="eduDegree">Higher Education</div>
-              <span class="timeline-date"><i class="fa-regular fa-calendar"></i> 09/2023 – 07/2027</span>
+              <div class="timeline-meta-row">
+                <span class="timeline-badge" data-i18n="eduDegree">Higher Education</span>
+                <span class="timeline-date"><i class="fa-regular fa-calendar"></i> 09/2023 – 07/2027</span>
+              </div>
               <h3 class="timeline-title" data-i18n="eduTitle">Bachelor of Computer Science</h3>
               <h4 class="timeline-company">Elshorouk Academy</h4>
               <p class="timeline-text" data-i18n="eduDesc">
@@ -828,8 +844,10 @@
               <i class="fa-solid fa-award"></i>
             </div>
             <div class="timeline-card">
-              <div class="timeline-badge badge-cert" data-i18n="certTag">Certified Program</div>
-              <span class="timeline-date"><i class="fa-regular fa-calendar"></i> 2024</span>
+              <div class="timeline-meta-row">
+                <span class="timeline-badge badge-cert" data-i18n="certTag">Certified Program</span>
+                <span class="timeline-date"><i class="fa-regular fa-calendar"></i> 2024</span>
+              </div>
               <h3 class="timeline-title" data-i18n="depiTitle">Digital Egypt Pioneers Program (DEPI)</h3>
               <h4 class="timeline-company">Ministry of Communications & Information Technology (MCIT)</h4>
               <p class="timeline-text" data-i18n="depiDesc">
@@ -844,8 +862,10 @@
               <i class="fa-solid fa-certificate"></i>
             </div>
             <div class="timeline-card">
-              <div class="timeline-badge badge-cert" data-i18n="certTag">Certificate</div>
-              <span class="timeline-date"><i class="fa-regular fa-calendar"></i> 2024</span>
+              <div class="timeline-meta-row">
+                <span class="timeline-badge badge-cert" data-i18n="certTag">Certificate</span>
+                <span class="timeline-date"><i class="fa-regular fa-calendar"></i> 2024</span>
+              </div>
               <h3 class="timeline-title" data-i18n="itiTitle">Mobile App Development using Flutter</h3>
               <h4 class="timeline-company">Information Technology Institute (ITI)</h4>
               <p class="timeline-text" data-i18n="itiDesc">
@@ -860,8 +880,10 @@
               <i class="fa-solid fa-laptop-code"></i>
             </div>
             <div class="timeline-card">
-              <div class="timeline-badge badge-course" data-i18n="courseTag">Professional Course</div>
-              <span class="timeline-date"><i class="fa-regular fa-calendar"></i> 2024</span>
+              <div class="timeline-meta-row">
+                <span class="timeline-badge badge-course" data-i18n="courseTag">Professional Course</span>
+                <span class="timeline-date"><i class="fa-regular fa-calendar"></i> 2024</span>
+              </div>
               <h3 class="timeline-title" data-i18n="diplomaTitle">Comprehensive Flutter Diploma</h3>
               <h4 class="timeline-company">Eng. Usama Elgendy</h4>
               <p class="timeline-text" data-i18n="diplomaDesc">
@@ -903,7 +925,7 @@
                 <span class="channel-label" data-i18n="emailLabel">Email Address</span>
                 <a href="mailto:muhammederakyy@gmail.com" class="channel-value">muhammederakyy@gmail.com</a>
               </div>
-              <button class="copy-btn" data-copy="muhammederakyy@gmail.com" title="Copy Email">
+              <button class="copy-btn" data-copy="muhammederakyy@gmail.com" title="Copy Email" aria-label="Copy Email">
                 <i class="fa-regular fa-copy"></i>
               </button>
             </div>
@@ -917,7 +939,7 @@
                 <span class="channel-label" data-i18n="phoneLabel">Phone & WhatsApp</span>
                 <a href="https://wa.me/201017833744" target="_blank" rel="noopener noreferrer" class="channel-value">+20 101 783 3744</a>
               </div>
-              <button class="copy-btn" data-copy="+201017833744" title="Copy Number">
+              <button class="copy-btn" data-copy="+201017833744" title="Copy Number" aria-label="Copy Phone Number">
                 <i class="fa-regular fa-copy"></i>
               </button>
             </div>
@@ -931,7 +953,7 @@
                 <span class="channel-label">LinkedIn</span>
                 <a href="https://www.linkedin.com/in/mohamed-eraky-elshafey" target="_blank" rel="noopener noreferrer" class="channel-value">mohamed-eraky-elshafey</a>
               </div>
-              <a href="https://www.linkedin.com/in/mohamed-eraky-elshafey" target="_blank" rel="noopener noreferrer" class="channel-arrow">
+              <a href="https://www.linkedin.com/in/mohamed-eraky-elshafey" target="_blank" rel="noopener noreferrer" class="channel-arrow" aria-label="Open LinkedIn Profile">
                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
               </a>
             </div>
@@ -945,7 +967,7 @@
                 <span class="channel-label">GitHub</span>
                 <a href="https://github.com/eng-m-eraky" target="_blank" rel="noopener noreferrer" class="channel-value">eng-m-eraky</a>
               </div>
-              <a href="https://github.com/eng-m-eraky" target="_blank" rel="noopener noreferrer" class="channel-arrow">
+              <a href="https://github.com/eng-m-eraky" target="_blank" rel="noopener noreferrer" class="channel-arrow" aria-label="Open GitHub Profile">
                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
               </a>
             </div>
@@ -972,7 +994,7 @@
                 <label for="form-name" data-i18n="formName">Your Name</label>
                 <div class="input-container">
                   <i class="fa-regular fa-user input-icon"></i>
-                  <input type="text" id="form-name" name="name" required placeholder="e.g. John Doe">
+                  <input type="text" id="form-name" name="name" required placeholder="e.g. John Doe" autocomplete="name">
                 </div>
               </div>
 
@@ -980,7 +1002,7 @@
                 <label for="form-email" data-i18n="formEmail">Your Email</label>
                 <div class="input-container">
                   <i class="fa-regular fa-envelope input-icon"></i>
-                  <input type="email" id="form-email" name="email" required placeholder="e.g. john@example.com">
+                  <input type="email" id="form-email" name="email" required placeholder="e.g. john@example.com" autocomplete="email">
                 </div>
               </div>
 
@@ -1005,7 +1027,7 @@
                 <i class="fa-solid fa-paper-plane"></i>
               </button>
 
-              <div id="form-status" class="form-status-msg"></div>
+              <div id="form-status" class="form-status-msg" aria-live="polite"></div>
             </form>
           </div>
 
@@ -1043,7 +1065,7 @@
   </footer>
 
   <!-- ==================== PROJECT DETAIL MODALS ==================== -->
-  <div id="project-modal" class="modal-backdrop">
+  <div id="project-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="modal-dialog">
       <button class="modal-close-btn" aria-label="Close dialog">&times;</button>
       <div class="modal-content" id="modal-dynamic-content">
@@ -1053,7 +1075,7 @@
   </div>
 
   <!-- Toast Notification Container -->
-  <div id="toast" class="toast-notification"></div>
+  <div id="toast" class="toast-notification" role="status" aria-live="polite"></div>
 
   <!-- Back to Top Floating Button -->
   <button id="back-to-top" class="back-to-top-btn" aria-label="Back to Top">

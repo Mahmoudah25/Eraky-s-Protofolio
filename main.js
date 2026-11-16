@@ -541,28 +541,53 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ===================================================================
-  // 5. MOBILE DRAWER NAVIGATION
+  // 5. MOBILE DRAWER NAVIGATION & BACKDROP
   // ===================================================================
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileNavDrawer = document.getElementById('mobile-nav-drawer');
+  const drawerBackdrop = document.getElementById('drawer-backdrop');
+  const drawerCloseBtn = document.getElementById('drawer-close-btn');
   const mobileLinks = document.querySelectorAll('.mobile-link');
 
   function toggleMobileMenu(forceClose = false) {
-    if (!mobileMenuBtn || !mobileNavDrawer) return;
+    if (!mobileNavDrawer) return;
 
-    if (forceClose || mobileNavDrawer.classList.contains('open')) {
-      mobileMenuBtn.classList.remove('active');
+    const isOpen = mobileNavDrawer.classList.contains('open');
+
+    if (forceClose || isOpen) {
+      if (mobileMenuBtn) {
+        mobileMenuBtn.classList.remove('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      }
       mobileNavDrawer.classList.remove('open');
+      mobileNavDrawer.setAttribute('aria-hidden', 'true');
+      if (drawerBackdrop) drawerBackdrop.classList.remove('active');
       document.body.style.overflow = '';
     } else {
-      mobileMenuBtn.classList.add('active');
+      if (mobileMenuBtn) {
+        mobileMenuBtn.classList.add('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'true');
+      }
       mobileNavDrawer.classList.add('open');
+      mobileNavDrawer.setAttribute('aria-hidden', 'false');
+      if (drawerBackdrop) drawerBackdrop.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
   }
 
   if (mobileMenuBtn) {
-    mobileMenuBtn.addEventListener('click', () => toggleMobileMenu());
+    mobileMenuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMobileMenu();
+    });
+  }
+
+  if (drawerCloseBtn) {
+    drawerCloseBtn.addEventListener('click', () => toggleMobileMenu(true));
+  }
+
+  if (drawerBackdrop) {
+    drawerBackdrop.addEventListener('click', () => toggleMobileMenu(true));
   }
 
   mobileLinks.forEach(link => {
